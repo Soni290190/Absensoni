@@ -11,8 +11,11 @@
         <h1>Absensi dengan Verifikasi Wajah</h1>
         <video id="webcam" autoplay></video>
         <canvas id="canvas" style="display:none;"></canvas>
-        <img id="photo" alt="Captured Photo" style="display:none;">
         <p id="status"></p>
+        <div class="loading" id="loading">
+            <div class="loading-icon"></div>
+            <span>Loading...</span>
+        </div>
     </div>
 
     <script src="firebaseConfig.js"></script>
