@@ -1,6 +1,5 @@
 const video = document.getElementById('webcam');
 const canvas = document.getElementById('canvas');
-const photo = document.getElementById('photo');
 const statusText = document.getElementById('status');
 
 // Initialize webcam
@@ -19,7 +18,6 @@ setInterval(() => {
     canvas.height = video.videoHeight;
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
     const dataURL = canvas.toDataURL('image/png');
-    photo.src = dataURL; // Display captured photo
 
     // Simulate face verification
     statusText.textContent = "Verifying face...";
@@ -34,7 +32,7 @@ function verifyFace(imageData) {
             statusText.textContent = "Face verified successfully!";
             uploadPhoto(imageData);
         } else {
-            statusText.textContent = "Face verification failed. Please try again.";
+            statusText.textContent = "Face verification failed. Retrying...";
         }
     }, 1000);
 }
