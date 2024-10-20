@@ -1,8 +1,6 @@
-
 const video = document.getElementById('webcam');
 const canvas = document.getElementById('canvas');
 const photo = document.getElementById('photo');
-const captureButton = document.getElementById('capture');
 const statusText = document.getElementById('status');
 
 // Initialize webcam
@@ -14,8 +12,8 @@ navigator.mediaDevices.getUserMedia({ video: true })
     console.error("Error accessing the webcam:", error);
 });
 
-// Capture photo and verify face
-captureButton.addEventListener('click', () => {
+// Automatically capture and verify every 3 seconds
+setInterval(() => {
     const context = canvas.getContext('2d');
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -26,7 +24,7 @@ captureButton.addEventListener('click', () => {
     // Simulate face verification
     statusText.textContent = "Verifying face...";
     verifyFace(dataURL);
-});
+}, 3000); // Capture every 3 seconds
 
 function verifyFace(imageData) {
     // Simulate an API call for face verification
