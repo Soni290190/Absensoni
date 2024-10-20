@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program Absensi</title>
+    <title>Absensi dengan Verifikasi Wajah</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Program Absensi</h1>
-    <form id="absensiForm">
-        <input type="text" id="name" placeholder="Nama" required>
-        <input type="time" id="time" required>
-        <button type="submit">Absen</button>
-    </form>
-    <ul id="absensiList"></ul>
-    <div id="loading" style="display: none;">Loading...</div>
+    <div class="container">
+        <h1>Absensi dengan Verifikasi Wajah</h1>
+        <video id="webcam" autoplay></video>
+        <button id="capture">Capture Photo</button>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <img id="photo" alt="Captured Photo">
+        <p id="status"></p>
+    </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-    <script src="script.js"></script>
+    <script src="firebaseConfig.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
